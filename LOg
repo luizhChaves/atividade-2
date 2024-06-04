@@ -1,0 +1,5 @@
+
+$PastaOrigem = "C:\Origem\Origem\PastaA"
+$PastaDestino = "C:\Destino\Destino\PastaB"
+$LogFile = "C:\LOG\LOG\LOG\Log\File.log"
+robocopy "$PastaOrigem" "$PastaDestino" /MIR /LOG+:$LogFile"
