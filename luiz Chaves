@@ -1,0 +1,17 @@
+
+$IntervaloVerificacao = 60
+$LogFile = "C:\Caminho\Para\Seu\Log\File.log"
+
+function VerificarConectividade {
+    param(
+        [string]$Dispositivo,
+        [int]$Porta
+    )
+    $TestePorta = Test-NetConnection -ComputerName $Dispositivo -Port $Porta
+    if ($TestePorta.TcpTestSucceeded) {
+        $Msg = "$Dispositivo:$Porta está acessível."
+    } else {
+        $Msg = "$Dispositivo:$Porta está inacessível."
+    }
+    Add-Content -Path $LogFile -Value "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - $Msg"
+}
