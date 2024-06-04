@@ -1,0 +1,16 @@
+
+$IntervaloVerificacao = 60
+$LogFile = "C:\Caminho\Para\Seu\Log\File.log"
+
+function VerificarConectividade {
+    param(
+        [string]$Dispositivo
+    )
+    $Ping = Test-Connection -ComputerName $Dispositivo -Count 1 -Quiet
+    if ($Ping) {
+        $Msg = "$Dispositivo está ONLINE."
+    } else {
+        $Msg = "$Dispositivo está OFFLINE."
+    }
+    Add-Content -Path $LogFile -Value "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - $Msg"
+}
