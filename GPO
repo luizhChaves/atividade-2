@@ -1,0 +1,6 @@
+
+$ResultadoGPOFile = "C:\Gpo\Gpo\Gpo\ResultadoGPO.txt"
+
+$ResultadoGPO = Get-GPResultantSetOfPolicy -Computer $env:COMPUTERNAME -ReportType HTML
+
+$ResultadoGPO | Out-File -FilePath $ResultadoGPOFile
